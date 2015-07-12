@@ -15,7 +15,7 @@ png("plot4.png")
 par(mfcol=c(2,2))
 
 with(data, plot(datetime, Global_active_power, type='l',
-                ylab="Global Active Power (kilowatts)",
+                ylab="Global Active Power",
                 xlab=""))
 
 with(data, plot(datetime, Sub_metering_1, type='l',
@@ -24,8 +24,10 @@ with(data, plot(datetime, Sub_metering_1, type='l',
 with(data, lines(datetime, Sub_metering_2, col="red"))
 with(data, lines(datetime, Sub_metering_3, col="blue"))
 legend("topright", c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
-       lwd=1, col=c("black", "red", "blue"))
+       lwd=1, col=c("black", "red", "blue"), bty = "n")
 
+with(data, plot(datetime, Voltage, type="l"))
 
+with(data, plot(datetime, Global_reactive_power, type="l"))
 
 dev.off()
